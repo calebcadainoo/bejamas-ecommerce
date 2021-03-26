@@ -10,9 +10,9 @@
 	outline: none;
 }
 
-.App {
-  /* text-align: center; */
-}
+/* .App {
+  text-align: center;
+} */
 
 .centroid {
   max-width: 1276px;
@@ -21,6 +21,18 @@
 
 .pad-x-20 {
   padding: 0 20px;
+}
+
+.pad-y-15 {
+	padding-bottom: 15px;
+}
+
+.pad-y-7 {
+	padding-bottom: 7px;
+}
+
+.text-right {
+	text-align: right;
 }
 
 .flex {
