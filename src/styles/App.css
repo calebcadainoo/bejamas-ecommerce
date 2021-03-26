@@ -19,6 +19,10 @@
   margin: auto;
 }
 
+.centroid-500 {
+  max-width: 500px;
+}
+
 .pad-x-20 {
   padding: 0 20px;
 }

@@ -48,6 +48,10 @@
 
 
 /* description */
+.product-description-box {
+	flex: 1;
+}
+
 .product-summary-box {
   padding: 14px 0;
   gap: 20px;
@@ -62,6 +66,31 @@ p {
   line-height: 150%;
   opacity: 0.6;
 }
+
+/* Recomemneded */
+.product-recommend-box {
+	flex: 1;
+}
+
+.product-recommend-pics {
+	display: grid;
+	grid-template-columns: repeat(3, 117px);
+	gap: 15px;
+	float: right;
+}
+
+.recommended-pic-box {
+	width: 117px;
+	height: 147px;
+	overflow: hidden;
+	align-self: flex-end;
+}
+
+.recommended-pic-box img {
+	height: 100%;
+	object-fit: cover;
+}
+
 
 @media screen and (max-width: 600px) {
   .product-summary-box {

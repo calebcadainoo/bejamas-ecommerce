@@ -1,6 +1,9 @@
 import React from 'react'
 import DogImage from '../ico/dog-art.png'
 import '../styles/ProductHeader.css'
+import RecommendedImage1 from '../ico/recommend1.png'
+import RecommendedImage2 from '../ico/recommend2.png'
+import RecommendedImage3 from '../ico/recommend3.png'
 
 function ProductHeader() {
   return (
@@ -29,7 +32,7 @@ function ProductHeader() {
             About The Samurai King Resting
           </div>
           <div className="product-category pad-y-7">Pets</div>
-          <p className="product-description-text">
+          <p className="centroid-500">
             So how did the classical Latin become so incoherent? According 
             to McClintock, a 15th century typesetter likely scrambled part 
             of Cicero's De Finibus in order to provide placeholder text to 
@@ -41,9 +44,17 @@ function ProductHeader() {
           <div className="app-title pad-y-15">
             People also buy
           </div>
-
+					<div className="product-recommend-pics">
+						<div className="recommended-pic-box"><img src={RecommendedImage3} alt="recommended"/></div>
+						<div className="recommended-pic-box"><img src={RecommendedImage2} alt="recommended"/></div>
+						<div className="recommended-pic-box"><img src={RecommendedImage1} alt="recommended"/></div>
+					</div>
+					<div className="clr-fix"></div>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic necessitatibus dignissimos odio, ratione, harum suscipit accusantium esse laboriosam assumenda, itaque similique voluptatibus tenetur dolor quasi. Eaque ea ad magni nihil!
+						Size: 1020 x 1020 pixel
+          </p>
+          <p>
+						Size: 15 MB
           </p>
         </div>
       </div>
