@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App centroid pad-x-20">
       <ProductNavBar />
-      {/* <ProductHeader /> */}
+      <ProductHeader />
     </div>
   )
 }

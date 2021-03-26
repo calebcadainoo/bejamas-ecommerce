@@ -15,7 +15,7 @@
 }
 
 .centroid {
-  max-width: 1440px;
+  max-width: 1276px;
   margin: auto;
 }
 
@@ -70,6 +70,7 @@
   position: absolute;
   top: 55px;
   right: 0;
+	z-index: 3;
 	background: var(--white-color);
 	border: 1px solid var(--border-line);
 	padding: 10px;
@@ -102,7 +103,7 @@
   flex: 2;
 }
 
-.product-name {
+.product-bag-name {
 	font-size: 14px;
 }
 
@@ -119,7 +120,7 @@
 .btn {
 	width: 100%;
 	border: 1px solid var(--dark-back);
-	padding: 5px;
+	padding: 10px;
 	background: var(--dark-back);
 	color: var(--white-color);
 	text-transform: uppercase;

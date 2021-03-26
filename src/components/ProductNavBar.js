@@ -31,7 +31,7 @@ function ProductNavBar() {
         {/* product */}
         <div className="product-bag-tile flex">
           <div className="product-bag-info">
-            <div className="product-name">
+            <div className="product-bag-name">
               Samurai King Resting
             </div>
             <div className="product-bag-price">
