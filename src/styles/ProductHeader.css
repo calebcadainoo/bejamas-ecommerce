@@ -1,7 +1,7 @@
 
 .product-header {
   padding-bottom: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   border-bottom: 1px solid var(--border-line);
 }
 
@@ -74,13 +74,13 @@ p {
 
 .product-recommend-pics {
 	display: grid;
-	grid-template-columns: repeat(3, 117px);
-	gap: 15px;
+	grid-template-columns: repeat(3, minmax(80px, 117px));
+	grid-gap: 10px;
 	float: right;
 }
 
 .recommended-pic-box {
-	width: 117px;
+	width: 100%;
 	height: 147px;
 	overflow: hidden;
 	align-self: flex-end;
