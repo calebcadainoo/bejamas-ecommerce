@@ -2,6 +2,7 @@
 
 .product-list-header {
   justify-content: space-between;
+	margin-bottom: 18px;
 }
 
 .product-list-type-name {

@@ -1,12 +1,11 @@
 import React from 'react'
 import '../styles/ProductList.css'
-import ProductListHeader from './ProductListHeader'
+import ProductListCategory from './ProductListCategory'
 
 function ProductList() {
   return (
-    <section className="product-list">
-      <ProductListHeader />
-
+    <section className="product-list flex">
+      <ProductListCategory />
     </section>
   )
 }

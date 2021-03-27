@@ -1,0 +1,28 @@
+
+.product-list-category {
+  width: 100%;
+  max-width: 300px;
+}
+
+.product-list-category-title{
+  justify-content: space-between;
+}
+
+.product-list-category-title img {
+  width: 15px;
+  display: none;
+}
+
+
+.product-list-category-group {
+	padding: 12px 0;
+	border-bottom: 1px solid var(--border-line);
+}
+
+
+
+@media screen and (max-width: 480px) {
+  .product-list-category-title img{
+    display: block;
+  }
+}
