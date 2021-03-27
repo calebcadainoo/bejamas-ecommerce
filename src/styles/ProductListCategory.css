@@ -1,7 +1,7 @@
 
 .product-list-category {
   width: 100%;
-  max-width: 300px;
+  max-width: 200px;
 }
 
 .product-list-category-title{
@@ -16,9 +16,27 @@
 
 .product-list-category-group {
 	padding: 12px 0;
+  margin-bottom: 20px;
 	border-bottom: 1px solid var(--border-line);
 }
 
+.checkbox-holder {
+  margin-bottom: 12px;
+}
+
+.form-checkbox {
+  text-transform: capitalize;
+  padding-left: 30px;
+  background-image: url(../ico/checkbox-empty.svg);
+  background-position: left;
+  background-size: 16px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.checkbox-holder input[type="checkbox"]:checked + .form-checkbox {
+	background-image: url(../ico/checkbox-checked.svg);
+}
 
 
 @media screen and (max-width: 480px) {
