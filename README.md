@@ -25,7 +25,7 @@ range (single filter). Using filters should affect the pagination. Try to build 
 them).
 
 ### 7. Web performance*
-Optimise Your website using lighthouse reports. Try to achieve 80 score in web core vitals. (mobile and desktop)
+Optimise Your website using lighthouse reports. Try to achieve 80& score in web core vitals. (mobile and desktop)
 
 ### 8. API implementation*
 Try to implement your own API using serverless functions or any other database tool. We prefer using GraphQL
