@@ -31,5 +31,5 @@ Optimise Your website using lighthouse reports. Try to achieve 80 score in we
 Try to implement your own API using serverless functions or any other database tool. We prefer using GraphQL
 databases (we use https://fauna.com/).
 
-### Designs:
+### Designs: (complete)
 https://www.figma.com/file/wYrjKlxB3g80yge1kcahWx/Bejamas-Recruitment-task?node-id=7%3A376
