@@ -8,6 +8,7 @@ function ProductItemsList() {
   const [pageNum, setPageNum] = useState(0)
 
   const productsPerPage = 4
+  const MAX_LENGTH = 5
   const pagesVisited = pageNum * productsPerPage
   // const displayProducts = productList
   //   .slice(pagesVisited, (pagesVisited + productsperPage))
@@ -16,9 +17,13 @@ function ProductItemsList() {
   //   }))
 
   const pageCounter = Math.ceil(20 / productsPerPage)
+  const [hidePrev, setHidePrev] = useState("hidebx")
+  const [hideNext, setHideNext] = useState("")
 
   const changePage = ({selected}) => {
     setPageNum(selected)
+    if (selected > 0) setHidePrev("")
+    if (selected === MAX_LENGTH - 1) setHideNext("hidebx")
     console.log('PAGINATION: ', selected)
   }
 
@@ -40,9 +45,9 @@ function ProductItemsList() {
         onPageChange={changePage}
         containerClassName={"paginationHolder"}
         previousLinkClassName={"prevBtn"}
-        previousClassName={"prevHolder"}
+        previousClassName={`prevHolder ${hidePrev}`}
         nextLinkClassName={"nextBtn"}
-        nextClassName={"nextHolder"}
+        nextClassName={`nextHolder ${hideNext}`}
         disabledClassName={"paginationDisabled"}
         activeClassName={"paginationActive"}
       />
