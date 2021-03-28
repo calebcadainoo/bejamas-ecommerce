@@ -2,6 +2,7 @@
   --border-line: #e4e4e4;
   --dark-back: #000000;
   --white-color: #ffffff;
+	--paginate-disabled: #b4b4b4;
 }
 
 * {
@@ -25,6 +26,10 @@
 
 .pad-x-20 {
   padding: 0 20px;
+}
+
+.pad-y-10 {
+  padding: 10px 0;
 }
 
 .pad-y-15 {
