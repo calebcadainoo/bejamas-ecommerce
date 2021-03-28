@@ -38,6 +38,19 @@
 	bottom: unset !important;
 }
 
+.product-cart-btn {
+	position: absolute;
+	bottom: -40px;
+	left: 0;
+	transition: 0.2s ease;
+	-webkit-transition: 0.2s ease;
+}
+
+.product-item-image:hover .product-cart-btn {
+	bottom: 0px;
+	left: 0;
+}
+
 /* Pagination */
 .paginationHolder {
 	list-style: none;
