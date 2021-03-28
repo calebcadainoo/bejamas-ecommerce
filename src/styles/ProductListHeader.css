@@ -36,7 +36,7 @@
   appearance: none;
  -webkit-appearance: none;
 	border: none;
-	background: #fff;
+	background: var(--white-color);
   background-image: url(../ico/carret-down.svg);
 	background-repeat: no-repeat;
 	background-position: right;
@@ -48,7 +48,7 @@
 	height: 30px;
 	margin-left: 12px;
 	padding: 7px;
-	border: 1px solid #000;
+	border: 1px solid var(--dark-back);
 	border-radius: 7px;
 	display: none;
 }
