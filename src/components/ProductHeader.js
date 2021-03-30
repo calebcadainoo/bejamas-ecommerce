@@ -10,7 +10,9 @@ function ProductHeader() {
     return (product?.details?.recommendations) ? (
       productHeader = product
       ) : ('')
-    })
+  })
+
+  console.log(productHeader)
 
   return (
     <header className="product-header">
@@ -25,9 +27,11 @@ function ProductHeader() {
       {/* image holder */}
       <div className="product-image-box">
         <img src={productHeader?.image.src} alt={productHeader?.image.alt} />
-        <div className="product-tag abs-bottom-left">
-          Photo of The Day
-        </div>
+        {(productHeader?.featured) ? (
+          <div className="product-tag abs-bottom-left">
+            Photo of The Day
+          </div>
+        ) : ('')}
       </div>
       <button className="btn product-title-btn show-on-mobile">Add to Cart</button>
 
