@@ -1,41 +1,40 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import ProductItem from './ProductItem'
 import ReactPaginate from 'react-paginate'
+import JsonData from '../sample-data.json'
 
 function ProductItemsList() {
-  // const data = 
-  // const [productList, setProductList] = useState(JsonData.slice(0, 50))
+  const productData = Object.entries(JsonData)[0][1]
+  const [productList, setProductList] = useState(productData.slice(0, productData.length))
   const [pageNum, setPageNum] = useState(0)
 
   const productsPerPage = 4
-  const MAX_LENGTH = 5
   const pagesVisited = pageNum * productsPerPage
-  // const displayProducts = productList
-  //   .slice(pagesVisited, (pagesVisited + productsperPage))
-  //   .map((product => {
-  //     <div>Product</div>
-  //   }))
+  const displayProducts = productList
+    .slice(pagesVisited, (pagesVisited + productsPerPage))
+    .map(((product, keyId) => {
+      return <ProductItem key={keyId} data={product} />
+    }))
 
-  const pageCounter = Math.ceil(20 / productsPerPage)
+  const pageCounter = Math.ceil(productList.length / productsPerPage)
   const [hidePrev, setHidePrev] = useState("hidebx")
   const [hideNext, setHideNext] = useState("")
 
   const changePage = ({selected}) => {
     setPageNum(selected)
+    // setProductList("")
     if (selected > 0) setHidePrev("")
-    if (selected === MAX_LENGTH - 1) setHideNext("hidebx")
+    if (selected === pageCounter - 1) setHideNext("hidebx")
     console.log('PAGINATION: ', selected)
+    console.log('COUNTER: ', pageCounter)
   }
 
   return (
     <div className="paduct-list-conatainer">
       <aside className="product-items-list">
         {/* call display products to list the products */}
-        {/* { displayProducts } */}
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
+        { displayProducts }
       </aside>
 
       <ReactPaginate 

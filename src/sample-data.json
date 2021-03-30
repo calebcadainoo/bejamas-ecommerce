@@ -222,32 +222,6 @@
       "details": null
     },
     {
-      "name": "Cucumber and Carrot Salad",
-      "category": "food",
-      "price": 93.89,
-      "currency": "USD",
-      "image": {
-        "src": "",
-        "alt": ""
-      },
-      "bestseller": false,
-      "featured": false,
-      "details": null
-    },
-    {
-      "name": "Cucumber and Carrot Salad",
-      "category": "food",
-      "price": 93.89,
-      "currency": "USD",
-      "image": {
-        "src": "",
-        "alt": ""
-      },
-      "bestseller": false,
-      "featured": false,
-      "details": null
-    },
-    {
       "name": "Happy Ladies",
       "category": "people",
       "price": 100,
@@ -343,7 +317,7 @@
         "height": 1020
       },
       "image": {
-        "src": "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
+        "src": "https://images.pexels.com/photos/356844/pexels-photo-356844.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
         "alt": "Statue of Liberty"
       },
       "bestseller": false,

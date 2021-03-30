@@ -9,10 +9,9 @@ function ProductHeader() {
   productData.map((product) => {
     return (product?.details?.recommendations) ? (
       productHeader = product
-      ) : ('')
+    ) : ('')
   })
-
-  console.log(productHeader)
+  
 
   return (
     <header className="product-header">
