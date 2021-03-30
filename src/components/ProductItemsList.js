@@ -3,12 +3,16 @@ import React, { useState } from 'react'
 import ProductItem from './ProductItem'
 import ReactPaginate from 'react-paginate'
 import JsonData from '../sample-data.json'
+import { useDataLayerValue } from '../context-api/DataLayer'
 
 function ProductItemsList() {
-  const productData = Object.entries(JsonData)[0][1]
-  const [productList, setProductList] = useState(productData.slice(0, productData.length))
+  const [{ products }, dispatch] = useDataLayerValue()
+  const [productList, setProductList] = useState(products.slice(0, products.length))
   const [pageNum, setPageNum] = useState(0)
 
+  console.log(products)
+
+  // ==== PAGINATION ====
   const productsPerPage = 4
   const pagesVisited = pageNum * productsPerPage
   const displayProducts = productList
@@ -23,12 +27,13 @@ function ProductItemsList() {
 
   const changePage = ({selected}) => {
     setPageNum(selected)
-    // setProductList("")
     if (selected > 0) setHidePrev("")
-    if (selected === pageCounter - 1) setHideNext("hidebx")
+    if (selected >= pageCounter - 1) setHideNext("hidebx")
+    if (selected < pageCounter - 1) setHideNext("")
     console.log('PAGINATION: ', selected)
     console.log('COUNTER: ', pageCounter)
   }
+  // ==== END OF PAGINATION ==== 
 
   return (
     <div className="paduct-list-conatainer">
