@@ -1,24 +1,30 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react'
-import DogImage from '../ico/dog-art.png'
 import '../styles/ProductHeader.css'
-import RecommendedImage1 from '../ico/recommend1.png'
-import RecommendedImage2 from '../ico/recommend2.png'
-import RecommendedImage3 from '../ico/recommend3.png'
+import JsonData from '../sample-data.json'
 
 function ProductHeader() {
+  let productHeader = {}
+  const productData = Object.entries(JsonData)[0][1]
+  productData.map((product) => {
+    return (product?.details?.recommendations) ? (
+      productHeader = product
+      ) : ('')
+    })
+
   return (
     <header className="product-header">
       {/* product title */}
       <div className="product-title flex">
         <div className="app-title">
-          Samurai King Resting
+          {productHeader?.name}
         </div>
         <button className="btn product-title-btn hide-on-mobile">Add to Cart</button>
       </div>
 
       {/* image holder */}
       <div className="product-image-box">
-        <img src={DogImage} alt="product"/>
+        <img src={productHeader?.image.src} alt={productHeader?.image.alt} />
         <div className="product-tag abs-bottom-left">
           Photo of The Day
         </div>
@@ -29,14 +35,11 @@ function ProductHeader() {
       <div className="product-summary-box flex">
         <div className="product-description-box">
           <div className="app-title pad-y-15">
-            About The Samurai King Resting
+            About The {productHeader?.name}
           </div>
-          <div className="product-category pad-y-7">Pets</div>
+          <div className="product-category pad-y-7">{productHeader?.category}</div>
           <p className="centroid-500">
-            So how did the classical Latin become so incoherent? According 
-            to McClintock, a 15th century typesetter likely scrambled part 
-            of Cicero's De Finibus in order to provide placeholder text to 
-            mockup various fonts for a type specimen book.
+            {productHeader?.details?.description}
           </p>
         </div>
 
@@ -45,16 +48,18 @@ function ProductHeader() {
             People also buy
           </div>
 					<div className="product-recommend-pics">
-						<div className="recommended-pic-box"><img src={RecommendedImage3} alt="recommended"/></div>
-						<div className="recommended-pic-box"><img src={RecommendedImage2} alt="recommended"/></div>
-						<div className="recommended-pic-box"><img src={RecommendedImage1} alt="recommended"/></div>
+						{
+              productHeader?.details?.recommendations.map((recommended, keyId) => {
+                return <div key={keyId} className="recommended-pic-box"><img src={recommended?.src} alt={recommended?.alt} title={recommended?.alt} /></div>
+              })
+            }
 					</div>
 					<div className="clr-fix"></div>
           <p>
-						Size: 1020 x 1020 pixel
+						Size: {`${productHeader?.details?.dimensions?.width} x ${productHeader?.details?.dimensions?.height}`} pixel
           </p>
           <p>
-						Size: 15 MB
+						Size: {(productHeader?.details.size) / 1024} MB
           </p>
         </div>
       </div>

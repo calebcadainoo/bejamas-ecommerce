@@ -362,11 +362,11 @@
       "bestseller": false,
       "featured": true,
       "details": {
-        "dimmentions": {
-          "width": 1020,
-          "height": 1020
+        "dimensions": {
+          "width": 2250,
+          "height": 1500
         },
-        "size": 15000,
+        "size": 15360,
         "description": "So how did the classical Latin become so incoherent? According to McClintock, a 15th century typesetter likely",
         "recommendations": [
           {
