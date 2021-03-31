@@ -8,27 +8,8 @@ import { actionTypes } from '../context-api/reducer'
 function ProductItemsList() {
   const [{ products, productsCurrent }, dispatch] = useDataLayerValue()
   console.log('New List: ', productsCurrent)
-  // useEffect(() => {
-  //   const listOfProducts = products
-  //   // dispatch({
-	// 	// 	type: actionTypes.GENERATE_PRODUCT_LIST,
-	// 	// 	productsCurrent: listOfProducts
-	// 	// })
-
-  //   console.log('From FILTER: ', listOfProducts)
-  // }, [])
-  const [productList, setProductList] = useState(productsCurrent.slice(0, productsCurrent.length))
-  // const [productList, setProductList] = useState(productsCurrent.slice(0, productsCurrent.length))
-  // if (typeof products != 'undefined') {
-  //   dispatch({
-  //     type: actionTypes.GENERATE_PRODUCT_LIST,
-  //     productsCurrent: products
-  //   })
   
-    // console.log('CUR LIST: ', productsCurrent.slice(0, 3))
-  // }
-  // setProductList(products.slice(0, products.length))
-  // console.log(productsCurrent)
+  const [productList, setProductList] = useState(productsCurrent.slice(0, productsCurrent.length))
   const [pageNum, setPageNum] = useState(0)
 
   // ==== PAGINATION ====

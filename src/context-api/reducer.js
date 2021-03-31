@@ -3,7 +3,7 @@ import JsonData from  '../sample-data.json'
 
 export const initialState = {
 	products: Object.entries(JsonData)[0][1],
-	productsCurrent: undefined,
+	productsCurrent: Object.entries(JsonData)[0][1],
 	mobileFilterBag: false,
 }
 
