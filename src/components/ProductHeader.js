@@ -1,16 +1,28 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react'
 import '../styles/ProductHeader.css'
-import JsonData from '../sample-data.json'
+import { useDataLayerValue } from '../context-api/DataLayer'
+import { actionTypes } from '../context-api/reducer'
 
 function ProductHeader() {
+  const [{ productsCurrent }] = useDataLayerValue()
   let productHeader = {}
-  const productData = Object.entries(JsonData)[0][1]
-  productData.map((product) => {
+  productsCurrent.map((product) => {
     return (product?.details?.recommendations) ? (
       productHeader = product
     ) : ('')
   })
+  
+  const [{productCart}, dispatch] = useDataLayerValue()
+  const updateCart = () => {
+    let cartList = productCart
+    cartList.push(productHeader)
+
+    dispatch({
+      type: actionTypes.UPDATE_CART,
+      productCart: cartList
+    })
+  }
   
 
   return (
@@ -20,7 +32,7 @@ function ProductHeader() {
         <div className="app-title">
           {productHeader?.name}
         </div>
-        <button className="btn product-title-btn hide-on-mobile">Add to Cart</button>
+        <button onClick={updateCart} className="btn product-title-btn hide-on-mobile">Add to Cart</button>
       </div>
 
       {/* image holder */}

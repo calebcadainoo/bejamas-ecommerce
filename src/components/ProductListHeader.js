@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react'
 import '../styles/ProductListHeader.css'
 import SortIcon from '../ico/sort.svg'
 import SettingsIcon from '../ico/setting-lines.svg'
@@ -19,7 +20,29 @@ function ProductListHeader() {
 				mobileFilterBag: false
 			})
 		}
+
+		console.log('Sort Filter: ', mobileFilterBag)
 	}
+
+	useEffect(() => {
+		if (Math.max(window.innerWidth || document.documentElement.clientWidth) < 999) {
+			dispatch({
+				type: actionTypes.MOBILE_FILTER_BAG,
+				mobileFilterBag: false
+			})
+			console.log('Less Than 999: ', mobileFilterBag)
+		}
+	}, [])
+
+	window.addEventListener('resize', () => {
+    if (Math.max(window.innerWidth || document.documentElement.clientWidth) < 999) {
+			dispatch({
+				type: actionTypes.MOBILE_FILTER_BAG,
+				mobileFilterBag: false
+			})
+			console.log('Resize Than 999: ', mobileFilterBag)
+		}
+  })
 
   return (
     <header className="product-list-header flex">
