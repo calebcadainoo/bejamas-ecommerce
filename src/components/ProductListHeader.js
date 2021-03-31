@@ -13,10 +13,10 @@ function ProductListHeader() {
 		if (Math.max(window.innerWidth || document.documentElement.clientWidth) < 999) {
 			(mobileFilterBag === false) ? dispatch({
 				type: actionTypes.SET_FILTER_MOBILE,
-				periodicDetails: true
+				mobileFilterBag: true
 			}) : dispatch({
 				type: actionTypes.SET_FILTER_MOBILE,
-				periodicDetails: false
+				mobileFilterBag: false
 			})
 		}
 	}

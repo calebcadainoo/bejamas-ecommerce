@@ -8,9 +8,11 @@ import { DataLayer } from './context-api/DataLayer'
 import reducer, { initialState } from './context-api/reducer'
 
 ReactDOM.render(
-  <DataLayer initialState={initialState} reducer={reducer}>
-    <App />
-  </DataLayer>,
+  <React.StrictMode>
+    <DataLayer initialState={initialState} reducer={reducer}>
+      <App />
+    </DataLayer>
+  </React.StrictMode>,
   document.getElementById('root')
 );
 

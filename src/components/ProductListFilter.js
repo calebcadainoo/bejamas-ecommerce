@@ -1,14 +1,35 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../styles/ProductListCategory.css'
 import CloseIcon from '../ico/close.svg'
 import CheckBox from './CheckBox'
+import { useDataLayerValue } from '../context-api/DataLayer'
+import { actionTypes } from '../context-api/reducer'
 
 function ProductListFilter() {
+  const [{ products, productsCurrent }, dispatch] = useDataLayerValue()
+  console.log('Filter List: ', productsCurrent)
+
+  const FilterByCategory = (value) => {
+
+  }
+
+  const CloseMobileFilter = () => {
+    // if (Math.max(window.innerWidth || document.documentElement.clientWidth) < 999) {
+		// 	(mobileFilterBag === false) ? dispatch({
+		// 		type: actionTypes.SET_FILTER_MOBILE,
+		// 		mobileFilterBag: true
+		// 	}) : dispatch({
+		// 		type: actionTypes.SET_FILTER_MOBILE,
+		// 		mobileFilterBag: false
+		// 	})
+		// }
+  }
+
   return (
     <aside className="product-list-category">
       <div className="product-list-category-title flex">
         <div className="heavy-text">Category</div>
-        <img src={CloseIcon} alt="close"/>
+        <img onClick={() => CloseMobileFilter} src={CloseIcon} alt="close"/>
       </div>
 
 			<div className="product-list-category-group">

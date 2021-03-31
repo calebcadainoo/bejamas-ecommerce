@@ -1,16 +1,35 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ProductItem from './ProductItem'
 import ReactPaginate from 'react-paginate'
-import JsonData from '../sample-data.json'
 import { useDataLayerValue } from '../context-api/DataLayer'
+import { actionTypes } from '../context-api/reducer'
 
 function ProductItemsList() {
-  const [{ products }, dispatch] = useDataLayerValue()
-  const [productList, setProductList] = useState(products.slice(0, products.length))
-  const [pageNum, setPageNum] = useState(0)
+  const [{ products, productsCurrent }, dispatch] = useDataLayerValue()
+  console.log('New List: ', productsCurrent)
+  // useEffect(() => {
+  //   const listOfProducts = products
+  //   // dispatch({
+	// 	// 	type: actionTypes.GENERATE_PRODUCT_LIST,
+	// 	// 	productsCurrent: listOfProducts
+	// 	// })
 
-  console.log(products)
+  //   console.log('From FILTER: ', listOfProducts)
+  // }, [])
+  const [productList, setProductList] = useState(productsCurrent.slice(0, productsCurrent.length))
+  // const [productList, setProductList] = useState(productsCurrent.slice(0, productsCurrent.length))
+  // if (typeof products != 'undefined') {
+  //   dispatch({
+  //     type: actionTypes.GENERATE_PRODUCT_LIST,
+  //     productsCurrent: products
+  //   })
+  
+    // console.log('CUR LIST: ', productsCurrent.slice(0, 3))
+  // }
+  // setProductList(products.slice(0, products.length))
+  // console.log(productsCurrent)
+  const [pageNum, setPageNum] = useState(0)
 
   // ==== PAGINATION ====
   const productsPerPage = 4
@@ -30,8 +49,6 @@ function ProductItemsList() {
     if (selected > 0) setHidePrev("")
     if (selected >= pageCounter - 1) setHideNext("hidebx")
     if (selected < pageCounter - 1) setHideNext("")
-    console.log('PAGINATION: ', selected)
-    console.log('COUNTER: ', pageCounter)
   }
   // ==== END OF PAGINATION ==== 
 
