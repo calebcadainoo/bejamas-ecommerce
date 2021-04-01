@@ -13,7 +13,7 @@ function ProductListFilter() {
 
   const FilterByCategory = (value) => {
     let filterArray = products.filter((product) => product.category === value)
-    console.log(filterArray)
+    // console.log(filterArray)
   }
 
   useEffect(() => {
