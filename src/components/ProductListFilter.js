@@ -45,10 +45,10 @@ function ProductListFilter() {
 
     console.log('pump: ', pump)
     
-    // dispatch({
-    //   type: actionTypes.GENERATE_PRODUCT_LIST,
-    //   productCart: pump
-    // })
+    dispatch({
+      type: actionTypes.GENERATE_PRODUCT_LIST,
+      productsCurrent: pump
+    })
   }
 
   
