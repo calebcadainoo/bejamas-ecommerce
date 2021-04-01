@@ -60,7 +60,24 @@ function ProductListHeader() {
 			type: actionTypes.GENERATE_PRODUCT_LIST,
 			productsCurrent: productsCurrent
 		})
-		// console.log('productCurrent: ', productsCurrent)
+	}
+
+	const [isSortByPrice, setIsSortByPrice] = useState(false)
+	const sortByPrice = () => {
+		if (isSortByPrice === false) {
+			productsCurrent.sort((a, b) => a.price - b.price)
+			setIsSortByPrice(true)
+		}
+
+		if (isSortByPrice === true) {
+			productsCurrent.sort((a, b) => b.price - a.price)
+			setIsSortByPrice(false)
+		}
+
+		dispatch({
+			type: actionTypes.GENERATE_PRODUCT_LIST,
+			productsCurrent: productsCurrent
+		})
 	}
 
   return (
@@ -78,7 +95,7 @@ function ProductListHeader() {
 					<div className="light-text">Sort</div>
 				</div>
 				{/* price */}
-				<select name="priceOrder" className="priceOrder">
+				<select onChange={sortByPrice} name="priceOrder" className="priceOrder">
 					<option value="">Price</option>
 					<option value="Ascending">Ascending</option>
 					<option value="Descending">Descending</option>
