@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
@@ -29,9 +30,25 @@ function ProductListFilter() {
   const priceFilterArr = []
   const handleFilterForm = (e) => {
     e.preventDefault()
-    console.log(e.target)
     console.log('categoryFilter', categoryFilter)
-    console.log('priceFilterArr', priceFilterArr)
+    updateFilter(categoryFilter)
+  }
+
+  const updateFilter = (filterArr) => {
+    let filterCategoryList = products
+    let pump = []
+    filterArr.map((filter) => {
+      return filterCategoryList.map((product) => {
+        if (product.category === filter) return pump.push(product)
+      })
+    })
+
+    console.log('pump: ', pump)
+    
+    // dispatch({
+    //   type: actionTypes.GENERATE_PRODUCT_LIST,
+    //   productCart: pump
+    // })
   }
 
   
