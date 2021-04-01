@@ -5,7 +5,7 @@ One of the products should have a flag that it's a featured artwork. It should b
 The product list should contain 4 artworks. After hovering over the image, you should display the "add to cart" bar.
 Remember that some products have the bestseller flag.
 
-### 3. Add to Cart
+### 3. Add to Cart (omplete)
 After clicking "Add to cart" in the cart icon in the header should appear the badge with the counter of elements in
 the cart. Each 'Add to cart' action should open the cart dropdown with items. The dropdown should be also visible
 after clicking the basket icon in the header. Clicking in the "Clear" button should remove items from the cart and

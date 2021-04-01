@@ -7,9 +7,8 @@ import { actionTypes } from '../context-api/reducer'
 
 function ProductItemsList() {
   const [{ products, productsCurrent }, dispatch] = useDataLayerValue()
-  console.log('New List: ', productsCurrent)
   
-  const [productList, setProductList] = useState(productsCurrent.slice(0, productsCurrent.length))
+  const [productList, setProductList] = useState(productsCurrent)
   const [pageNum, setPageNum] = useState(0)
 
   // ==== PAGINATION ====

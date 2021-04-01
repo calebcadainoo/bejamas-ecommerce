@@ -9,7 +9,6 @@ import { actionTypes } from '../context-api/reducer'
 
 function ProductListFilter() {
   const [{ products, productsCurrent, mobileFilterBag }, dispatch] = useDataLayerValue()
-  console.log('Filter List: ', productsCurrent)
 
   const FilterByCategory = (value) => {
     let filterArray = products.filter((product) => product.category === value)

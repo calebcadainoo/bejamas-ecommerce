@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/ProductListHeader.css'
 import SortIcon from '../ico/sort.svg'
 import SettingsIcon from '../ico/setting-lines.svg'
@@ -7,7 +7,7 @@ import { useDataLayerValue } from '../context-api/DataLayer'
 import { actionTypes } from '../context-api/reducer'
 
 function ProductListHeader() {
-	const [{mobileFilterBag}, dispatch] = useDataLayerValue()
+	const [{productsCurrent, mobileFilterBag}, dispatch] = useDataLayerValue()
 
 	
 	const handleMobileFilterView = () => {
@@ -44,6 +44,25 @@ function ProductListHeader() {
 		}
   })
 
+	const [isAscending, setIsAscending] = useState(false)
+	const sortAlphabetically = () => {
+		if (isAscending === false) {
+			productsCurrent.sort((a, b) => a.name.localeCompare(b.name))
+			setIsAscending(true)
+		}
+
+		if (isAscending === true) {
+			productsCurrent.sort((a, b) => b.name.localeCompare(a.name))
+			setIsAscending(false)
+		}
+
+		dispatch({
+			type: actionTypes.GENERATE_PRODUCT_LIST,
+			productsCurrent: productsCurrent
+		})
+		// console.log('productCurrent: ', productsCurrent)
+	}
+
   return (
     <header className="product-list-header flex">
       <div className="product-list-type-name">
@@ -54,7 +73,7 @@ function ProductListHeader() {
 
       <div className="product-list-sort-filter flex">
 				{/* sort */}
-				<div className="product-list-sort flex">
+				<div onClick={sortAlphabetically} className="product-list-sort flex">
 					<img className="light-50" src={SortIcon} alt="sort"/>
 					<div className="light-text">Sort</div>
 				</div>

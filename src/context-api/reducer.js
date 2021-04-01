@@ -8,6 +8,7 @@ export const initialState = {
 	filterCategoryList: [],
 	filterPriceList: [],
 	productCart: [],
+	pagination: [],
 }
 
 export const actionTypes = {
@@ -17,6 +18,7 @@ export const actionTypes = {
 	SET_FILTER_CATEGORY_LIST: 'SET_FILTER_CATEGORY_LIST',
 	SET_FILTER_PRICE_LIST: 'SET_FILTER_PRICE_LIST',
 	UPDATE_CART: 'UPDATE_CART', 
+	READ_PAGINATION: 'READ_PAGINATION'
 }
 
 const reducer = (state, action) => {
@@ -52,6 +54,11 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				productCart: action.productCart,
+			}
+		case actionTypes.READ_PAGINATION:
+			return {
+				...state,
+				pagination: action.pagination,
 			}
 		default:
 			return state
