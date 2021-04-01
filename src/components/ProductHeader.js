@@ -7,11 +7,13 @@ import { actionTypes } from '../context-api/reducer'
 function ProductHeader() {
   const [{ productsCurrent }] = useDataLayerValue()
   let productHeader = {}
-  productsCurrent.map((product) => {
-    return (product?.details?.recommendations) ? (
-      productHeader = product
-    ) : ('')
-  })
+  if (typeof productsCurrent != 'undefined'){
+    productsCurrent.map((product) => {
+      return (product?.details?.recommendations) ? (
+        productHeader = product
+      ) : ('')
+    })
+  }
   
   const [{productCart}, dispatch] = useDataLayerValue()
   const updateCart = () => {
@@ -37,7 +39,7 @@ function ProductHeader() {
 
       {/* image holder */}
       <div className="product-image-box">
-        <img src={productHeader?.image.src} alt={productHeader?.image.alt} />
+        <img src={productHeader?.image?.src} alt={productHeader?.image?.alt} />
         {(productHeader?.featured) ? (
           <div className="product-tag abs-bottom-left">
             Photo of The Day
@@ -74,7 +76,7 @@ function ProductHeader() {
 						Size: {`${productHeader?.details?.dimensions?.width} x ${productHeader?.details?.dimensions?.height}`} pixel
           </p>
           <p>
-						Size: {(productHeader?.details.size) / 1024} MB
+						Size: {(productHeader?.details?.size) / 1024} MB
           </p>
         </div>
       </div>

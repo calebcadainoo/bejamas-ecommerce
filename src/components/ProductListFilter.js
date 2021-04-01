@@ -25,19 +25,19 @@ function ProductListFilter() {
 		}
   }
 
-  const [priceFilter, setPriceFilter] = useState([])
+  const [categoryFilter, setCategoryFilter] = useState([])
   const priceFilterArr = []
   const handleFilterForm = (e) => {
     e.preventDefault()
     console.log(e.target)
-    console.log('priceFilter', priceFilter)
+    console.log('categoryFilter', categoryFilter)
     console.log('priceFilterArr', priceFilterArr)
   }
 
   
 
   return (
-    <aside className={`product-list-category`}>
+    <aside className={`product-list-category`}> 
       <div className="product-list-category-title flex">
         <div className="heavy-text">Category</div>
         <img onClick={() => CloseMobileFilter} src={CloseIcon} alt="close"/>
@@ -45,13 +45,13 @@ function ProductListFilter() {
 
       <form onSubmit={handleFilterForm}>
         <div className="product-list-category-group">
-          <CheckBox func={setPriceFilter} funcVal={priceFilterArr} name="category" value="people" count="c1" />
-          <CheckBox func={setPriceFilter} funcVal={priceFilterArr} name="category" value="premium" count="c2" />
-          <CheckBox func={setPriceFilter} funcVal={priceFilterArr} name="category" value="pets" count="c3" />
-          <CheckBox func={setPriceFilter} funcVal={priceFilterArr} name="category" value="food" count="c4" />
-          <CheckBox func={setPriceFilter} funcVal={priceFilterArr} name="category" value="landmarks" count="c5" />
-          <CheckBox func={setPriceFilter} funcVal={priceFilterArr} name="category" value="cities" count="c6" />
-          <CheckBox func={setPriceFilter} funcVal={priceFilterArr} name="category" value="nature" count="c7" />
+          <CheckBox func={setCategoryFilter} name="category" value="people" count="c1" />
+          <CheckBox func={setCategoryFilter} name="category" value="premium" count="c2" />
+          <CheckBox func={setCategoryFilter} name="category" value="pets" count="c3" />
+          <CheckBox func={setCategoryFilter} name="category" value="food" count="c4" />
+          <CheckBox func={setCategoryFilter} name="category" value="landmarks" count="c5" />
+          <CheckBox func={setCategoryFilter} name="category" value="cities" count="c6" />
+          <CheckBox func={setCategoryFilter} name="category" value="nature" count="c7" />
         </div>
       
 
