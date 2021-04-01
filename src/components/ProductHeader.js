@@ -5,10 +5,10 @@ import { useDataLayerValue } from '../context-api/DataLayer'
 import { actionTypes } from '../context-api/reducer'
 
 function ProductHeader() {
-  const [{ productsCurrent }] = useDataLayerValue()
+  const [{ products }] = useDataLayerValue()
   let productHeader = {}
-  if (typeof productsCurrent != 'undefined'){
-    productsCurrent.map((product) => {
+  if (typeof products != 'undefined'){
+    products.map((product) => {
       return (product?.details?.recommendations) ? (
         productHeader = product
       ) : ('')

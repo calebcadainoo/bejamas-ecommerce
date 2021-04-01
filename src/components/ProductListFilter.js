@@ -1,6 +1,4 @@
 /* eslint-disable array-callback-return */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import '../styles/ProductListCategory.css'
 import CloseIcon from '../ico/close.svg'
@@ -9,15 +7,10 @@ import { useDataLayerValue } from '../context-api/DataLayer'
 import { actionTypes } from '../context-api/reducer'
 
 function ProductListFilter() {
-  const [{ products, productsCurrent, mobileFilterBag }, dispatch] = useDataLayerValue()
-
-  const FilterByCategory = (value) => {
-    let filterArray = products.filter((product) => product.category === value)
-    // console.log(filterArray)
-  }
+  const [{ products }, dispatch] = useDataLayerValue()
 
   useEffect(() => {
-    FilterByCategory("people")
+    // FilterByCategory("people")
   }, [])
 
   const CloseMobileFilter = () => {
@@ -27,30 +20,37 @@ function ProductListFilter() {
   }
 
   const [categoryFilter, setCategoryFilter] = useState([])
-  const priceFilterArr = []
+  const [priceFilter, setPriceFilter] = useState([])
   const handleFilterForm = (e) => {
     e.preventDefault()
     console.log('categoryFilter', categoryFilter)
+    console.log('priceFilter', priceFilter)
     updateFilter(categoryFilter)
+    updatePriceFilter(priceFilter)
   }
 
   const updateFilter = (filterArr) => {
     let filterCategoryList = products
-    let pump = []
+    let filteredArray = []
     filterArr.map((filter) => {
       return filterCategoryList.map((product) => {
-        if (product.category === filter) return pump.push(product)
+        if (product.category === filter) return filteredArray.push(product)
       })
     })
 
-    console.log('pump: ', pump)
+    console.log('pump: ', filteredArray)
     
-    dispatch({
-      type: actionTypes.GENERATE_PRODUCT_LIST,
-      productsCurrent: pump
-    })
+    if (filteredArray.length > 0) {
+      dispatch({
+        type: actionTypes.GENERATE_PRODUCT_LIST,
+        productsCurrent: filteredArray
+      })
+    }
   }
 
+  const updatePriceFilter = (filterString) => {
+    console.log('filterString', filterString)
+  }
   
 
   return (
@@ -77,10 +77,10 @@ function ProductListFilter() {
         </div>
 
         <div className="product-list-category-group">
-          <CheckBox name="price" value="lower than $20" count="p1" />
-          <CheckBox name="price" value="$20 - $100" count="p2" />
-          <CheckBox name="price" value="$100 - $200" count="p3" />
-          <CheckBox name="price" value="More than $200" count="p4" />
+          <CheckBox func={setPriceFilter} type="onlyOne" name="price" value="< 20" count="p1" />
+          <CheckBox func={setPriceFilter} type="onlyOne" name="price" value="20 - 100" count="p2" />
+          <CheckBox func={setPriceFilter} type="onlyOne" name="price" value="100 - 200" count="p3" />
+          <CheckBox func={setPriceFilter} type="onlyOne" name="price" value="> 200" count="p4" />
         </div>
 
         <div className="flex">
