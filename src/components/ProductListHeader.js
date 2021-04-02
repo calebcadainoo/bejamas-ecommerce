@@ -8,20 +8,17 @@ import { actionTypes } from '../context-api/reducer'
 
 function ProductListHeader() {
 	const [{productsCurrent, mobileFilterBag}, dispatch] = useDataLayerValue()
-
 	
 	const handleMobileFilterView = () => {
 		if (Math.max(window.innerWidth || document.documentElement.clientWidth) < 999) {
 			(mobileFilterBag === false) ? dispatch({
-				type: actionTypes.SET_FILTER_MOBILE,
+				type: actionTypes.MOBILE_FILTER_BAG,
 				mobileFilterBag: true
 			}) : dispatch({
-				type: actionTypes.SET_FILTER_MOBILE,
+				type: actionTypes.MOBILE_FILTER_BAG,
 				mobileFilterBag: false
 			})
 		}
-
-		console.log('Sort Filter: ', mobileFilterBag)
 	}
 
 	useEffect(() => {
@@ -102,7 +99,7 @@ function ProductListHeader() {
 				</select>
 				{/* mobile tap filter */}
 				<div onClick={handleMobileFilterView} className="product-list-mobile-sort">
-					<img src={SettingsIcon} alt="mobile settings"/>
+					<img onClick={handleMobileFilterView} src={SettingsIcon} alt="mobile settings"/>
 				</div>
       </div>
     </header>

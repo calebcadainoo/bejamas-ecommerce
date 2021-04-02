@@ -10,9 +10,16 @@ import RadioCheckBox from './form-elements/RadioCheckBox'
 function ProductListFilter() {
 	const [{ products }, dispatch] = useDataLayerValue()
 
-	const CloseMobileFilter = () => {
+	const handleMobileFilterView = () => {
+		alert('hello')
 		if (Math.max(window.innerWidth || document.documentElement.clientWidth) < 999) {
-			return "hidebx"
+			(mobileFilterBag === false) ? dispatch({
+				type: actionTypes.MOBILE_FILTER_BAG,
+				mobileFilterBag: true
+			}) : dispatch({
+				type: actionTypes.MOBILE_FILTER_BAG,
+				mobileFilterBag: false
+			})
 		}
 	}
 
@@ -79,13 +86,15 @@ function ProductListFilter() {
 			productsCurrent: fullProductsList
 		})
 	}
+
+	const [{mobileFilterBag}] = useDataLayerValue()
 	
 
 	return (
-		<aside className={`product-list-category`}> 
+		<aside className={(mobileFilterBag === false) ? `product-list-category hidebx` : `product-list-category`}> 
 			<div className="product-list-category-title flex">
 				<div className="heavy-text">Category</div>
-				<img onClick={() => CloseMobileFilter} src={CloseIcon} alt="close"/>
+				<img onClick={() => handleMobileFilterView} src={CloseIcon} alt="close"/>
 			</div>
 
 			<form id="filterForm" onSubmit={handleFilterForm}>
