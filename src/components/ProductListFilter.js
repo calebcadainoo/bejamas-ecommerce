@@ -43,7 +43,8 @@ function ProductListFilter() {
 				productsCurrent: filteredArray
 			})
 		}
-		console.log('pump: ', filteredArray)
+		// console.log('price filter: ', filterArr)
+		// console.log('pump: ', filteredArray)
 		return filteredArray
 	}
 
@@ -58,12 +59,21 @@ function ProductListFilter() {
 			if (upperRange === "") upperRange = 0
 			if (upperRange === "") upperRange = 0
 			upperRange = parseInt(upperRange)
-	
-			let filterArr = prevFilteredProducts
-			let priceArrFilter = filterArr.filter((product) => product.price > lowerRange && product.price < upperRange)
-			if (upperRange === 0) priceArrFilter = filterArr.filter((product) => product.price > lowerRange)
-	
-			console.log('priceArrFilter: ', priceArrFilter)
+
+			let priceArrFilter = prevFilteredProducts.filter((product) => product.price >= lowerRange && product.price <= upperRange)
+			if (upperRange === 0) priceArrFilter = prevFilteredProducts.filter((product) => product.price >= lowerRange)
+			
+			dispatch({
+				type: actionTypes.GENERATE_PRODUCT_LIST,
+				productsCurrent: priceArrFilter
+			})
+
+			// console.log('priceArrFilter: ', priceArrFilter)
+		} else {
+			dispatch({
+				type: actionTypes.GENERATE_PRODUCT_LIST,
+				productsCurrent: prevFilteredProducts
+			})
 		}
 	}
 	
