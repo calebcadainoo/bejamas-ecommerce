@@ -2,7 +2,7 @@ import React from 'react'
 
 function CheckBox(props) {
   return (
-    <div onClick={() => console.log('hey')} className="checkbox-holder">
+    <div className="checkbox-holder">
       <input type="checkbox" name={props.name} 
         className="hidebx" 
         id={props.count} 

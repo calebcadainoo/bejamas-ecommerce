@@ -38,6 +38,10 @@
 	background-image: url(../ico/checkbox-checked.svg);
 }
 
+.checkbox-holder input[type="radio"]:checked + .form-checkbox {
+	background-image: url(../ico/checkbox-checked.svg);
+}
+
 
 @media screen and (max-width: 480px) {
   .product-list-category-title img{

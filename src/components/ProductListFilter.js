@@ -1,10 +1,11 @@
 /* eslint-disable array-callback-return */
 import React, { useState, useEffect } from 'react'
-import '../styles/ProductListCategory.css'
+import '../styles/ProductListFilter.css'
 import CloseIcon from '../ico/close.svg'
-import CheckBox from './CheckBox'
+import CheckBox from './form-elements/CheckBox'
 import { useDataLayerValue } from '../context-api/DataLayer'
 import { actionTypes } from '../context-api/reducer'
+import RadioCheckBox from './form-elements/RadioCheckBox'
 
 function ProductListFilter() {
   const [{ products }, dispatch] = useDataLayerValue()
@@ -23,8 +24,6 @@ function ProductListFilter() {
   const [priceFilter, setPriceFilter] = useState([])
   const handleFilterForm = (e) => {
     e.preventDefault()
-    console.log('categoryFilter', categoryFilter)
-    console.log('priceFilter', priceFilter)
     updateFilter(categoryFilter)
     updatePriceFilter(priceFilter)
   }
@@ -48,8 +47,33 @@ function ProductListFilter() {
     }
   }
 
+  // const detectRangeType = (value) => {
+  //   const stringArray = value[0].split(" ")
+  //   const lowerRange = stringArray[0]
+  //   const upperRange = stringArray[2]
+  //   console.log('lowerRange: ', lowerRange)
+  //   console.log('upperRange: ', upperRange)
+  // }
+
   const updatePriceFilter = (filterString) => {
-    console.log('filterString', filterString)
+    const stringArray = filterString[0].split(" ")
+    let lowerRange = stringArray[0]
+    if (lowerRange === "") lowerRange = 0
+    lowerRange = parseInt(lowerRange)
+
+    let upperRange = stringArray[2]
+    if (upperRange === "") upperRange = 0
+    if (upperRange === "") upperRange = 0
+    upperRange = parseInt(upperRange)
+
+    let filterArr = products
+    let priceArrFilter = filterArr.filter((product) => product.price > lowerRange && product.price < upperRange)
+    if (upperRange === 0) priceArrFilter = filterArr.filter((product) => product.price > lowerRange)
+
+    console.log('lowerRange: ', lowerRange)
+    console.log('upperRange: ', upperRange)
+    console.log('priceArrFilter: ', priceArrFilter)
+    // detectRangeType(filterString)
   }
   
 
@@ -77,10 +101,10 @@ function ProductListFilter() {
         </div>
 
         <div className="product-list-category-group">
-          <CheckBox func={setPriceFilter} type="onlyOne" name="price" value="< 20" count="p1" />
-          <CheckBox func={setPriceFilter} type="onlyOne" name="price" value="20 - 100" count="p2" />
-          <CheckBox func={setPriceFilter} type="onlyOne" name="price" value="100 - 200" count="p3" />
-          <CheckBox func={setPriceFilter} type="onlyOne" name="price" value="> 200" count="p4" />
+          <RadioCheckBox func={setPriceFilter} name="price" value=" - 20" text="Lower than $20" count="p1" />
+          <RadioCheckBox func={setPriceFilter} name="price" value="20 - 100" text="$20 - $100" count="p2" />
+          <RadioCheckBox func={setPriceFilter} name="price" value="100 - 200" text="$100 - $200" count="p3" />
+          <RadioCheckBox func={setPriceFilter} name="price" value="200 - " text="More than $200" count="p4" />
         </div>
 
         <div className="flex">
