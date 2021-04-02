@@ -20,14 +20,13 @@ function ProductListFilter() {
 	const [priceFilter, setPriceFilter] = useState([])
 	const handleFilterForm = (e) => {
 		e.preventDefault()
-		let firstFilterPhase = updateFilter(categoryFilter)
-
-		// console.log('firstFilterPhase', firstFilterPhase)
-		
-		updatePriceFilter(priceFilter, firstFilterPhase)
+		let firstFilterPhase = updateCategoryFilter(categoryFilter)
+		let secondFilterPhase = updatePriceFilter(priceFilter, firstFilterPhase)
+		console.log('firstFilterPhase: ', firstFilterPhase)
+		console.log('secondFilterPhase: ', secondFilterPhase)
 	}
 
-	const updateFilter = (filterArr) => {
+	const updateCategoryFilter = (filterArr) => {
 		let filterCategoryList = products
 		let filteredArray = []
 		filterArr.map((filter) => {
@@ -37,14 +36,6 @@ function ProductListFilter() {
 			})
 		})
 
-		if (filteredArray.length > 0) {
-			dispatch({
-				type: actionTypes.GENERATE_PRODUCT_LIST,
-				productsCurrent: filteredArray
-			})
-		}
-		// console.log('price filter: ', filterArr)
-		// console.log('pump: ', filteredArray)
 		return filteredArray
 	}
 
@@ -68,13 +59,24 @@ function ProductListFilter() {
 				productsCurrent: priceArrFilter
 			})
 
-			// console.log('priceArrFilter: ', priceArrFilter)
+			return priceArrFilter
 		} else {
 			dispatch({
 				type: actionTypes.GENERATE_PRODUCT_LIST,
 				productsCurrent: prevFilteredProducts
 			})
+			return prevFilteredProducts
 		}
+	}
+
+	const resetFilter = () => {
+		setCategoryFilter([])
+		setPriceFilter([])
+		let fullProductsList = products
+		dispatch({
+			type: actionTypes.GENERATE_PRODUCT_LIST,
+			productsCurrent: fullProductsList
+		})
 	}
 	
 
@@ -109,7 +111,7 @@ function ProductListFilter() {
 				</div>
 
 				<div className="flex product-filter-btns">
-					<input type="reset" className="btn btn-transparent uppercase" value="Clear" />
+					<input onClick={resetFilter} type="reset" className="btn btn-transparent uppercase" value="Clear" />
 					<input type="submit" className="btn" value="Save" />
 				</div>
 			</form>
