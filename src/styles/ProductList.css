@@ -119,4 +119,9 @@
 		margin: auto;
 		grid-template-columns: 1fr;
 	}
+
+	.product-cart-btn {
+		bottom: 0px;
+		left: 0;
+	}
 }

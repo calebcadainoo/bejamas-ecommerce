@@ -46,7 +46,7 @@ function ProductHeader() {
           </div>
         ) : ('')}
       </div>
-      <button className="btn product-title-btn show-on-mobile">Add to Cart</button>
+      <button onClick={updateCart} className="btn product-title-btn show-on-mobile">Add to Cart</button>
 
       {/* description */}
       <div className="product-summary-box flex">

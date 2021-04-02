@@ -24,6 +24,7 @@ function ProductItemsList() {
 	const changePage = ({selected}) => {
 		setPageNum(selected)
 		if (selected > 0) setHidePrev("")
+		if (selected === 0) setHidePrev("hidebx")
 		if (selected >= pageCounter - 1) setHideNext("hidebx")
 		if (selected < pageCounter - 1) setHideNext("")
 	}
