@@ -99,7 +99,7 @@ function ProductListHeader() {
 				</select>
 				{/* mobile tap filter */}
 				<div onClick={handleMobileFilterView} className="product-list-mobile-sort">
-					<img onClick={handleMobileFilterView} src={SettingsIcon} alt="mobile settings"/>
+					<img src={SettingsIcon} alt="mobile settings"/>
 				</div>
       </div>
     </header>
