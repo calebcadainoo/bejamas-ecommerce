@@ -18,10 +18,13 @@ function ProductListFilter() {
 
 	const [categoryFilter, setCategoryFilter] = useState([])
 	const [priceFilter, setPriceFilter] = useState([])
+
 	const handleFilterForm = (e) => {
 		e.preventDefault()
-		let firstFilterPhase = updateCategoryFilter(categoryFilter)
+
+		let firstFilterPhase = updateCategoryFilter(categoryFilter[0])
 		let secondFilterPhase = updatePriceFilter(priceFilter, firstFilterPhase)
+		
 		console.log('firstFilterPhase: ', firstFilterPhase)
 		console.log('secondFilterPhase: ', secondFilterPhase)
 	}
@@ -87,7 +90,7 @@ function ProductListFilter() {
 				<img onClick={() => CloseMobileFilter} src={CloseIcon} alt="close"/>
 			</div>
 
-			<form onSubmit={handleFilterForm}>
+			<form id="filterForm" onSubmit={handleFilterForm}>
 				<div className="product-list-category-group">
 					<CheckBox func={setCategoryFilter} name="category" value="people" count="c1" />
 					<CheckBox func={setCategoryFilter} name="category" value="premium" count="c2" />
