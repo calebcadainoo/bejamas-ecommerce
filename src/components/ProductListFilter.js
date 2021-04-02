@@ -87,7 +87,6 @@ function ProductListFilter() {
 	}
 
 	const [{mobileFilterBag}] = useDataLayerValue()
-	
 
 	return (
 		<aside className={(mobileFilterBag === false) ? `product-list-category hidebx` : `product-list-category`}> 

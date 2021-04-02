@@ -27,7 +27,6 @@ function ProductListHeader() {
 				type: actionTypes.MOBILE_FILTER_BAG,
 				mobileFilterBag: false
 			})
-			console.log('Less Than 999: ', mobileFilterBag)
 		}
 	}, [])
 
@@ -37,7 +36,11 @@ function ProductListHeader() {
 				type: actionTypes.MOBILE_FILTER_BAG,
 				mobileFilterBag: false
 			})
-			console.log('Resize Than 999: ', mobileFilterBag)
+		} else {
+			dispatch({
+				type: actionTypes.MOBILE_FILTER_BAG,
+				mobileFilterBag: true
+			})
 		}
   })
 
