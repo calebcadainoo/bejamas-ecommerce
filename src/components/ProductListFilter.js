@@ -47,14 +47,6 @@ function ProductListFilter() {
     }
   }
 
-  // const detectRangeType = (value) => {
-  //   const stringArray = value[0].split(" ")
-  //   const lowerRange = stringArray[0]
-  //   const upperRange = stringArray[2]
-  //   console.log('lowerRange: ', lowerRange)
-  //   console.log('upperRange: ', upperRange)
-  // }
-
   const updatePriceFilter = (filterString) => {
     const stringArray = filterString[0].split(" ")
     let lowerRange = stringArray[0]
@@ -70,10 +62,7 @@ function ProductListFilter() {
     let priceArrFilter = filterArr.filter((product) => product.price > lowerRange && product.price < upperRange)
     if (upperRange === 0) priceArrFilter = filterArr.filter((product) => product.price > lowerRange)
 
-    console.log('lowerRange: ', lowerRange)
-    console.log('upperRange: ', upperRange)
     console.log('priceArrFilter: ', priceArrFilter)
-    // detectRangeType(filterString)
   }
   
 
@@ -107,8 +96,8 @@ function ProductListFilter() {
           <RadioCheckBox func={setPriceFilter} name="price" value="200 - " text="More than $200" count="p4" />
         </div>
 
-        <div className="flex">
-          <input type="reset" className="product-tag uppercase" value="Clear" />
+        <div className="flex product-filter-btns">
+          <input type="reset" className="btn btn-transparent uppercase" value="Clear" />
           <input type="submit" className="btn" value="Save" />
         </div>
       </form>
