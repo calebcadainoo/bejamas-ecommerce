@@ -24,9 +24,7 @@ function ProductListFilter() {
 
 		let firstFilterPhase = updateCategoryFilter(categoryFilter[0])
 		let secondFilterPhase = updatePriceFilter(priceFilter, firstFilterPhase)
-		
-		console.log('firstFilterPhase: ', firstFilterPhase)
-		console.log('secondFilterPhase: ', secondFilterPhase)
+		return secondFilterPhase
 	}
 
 	const updateCategoryFilter = (filterArr) => {
