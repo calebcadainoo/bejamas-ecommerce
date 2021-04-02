@@ -1,26 +1,23 @@
-/* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import ProductItem from './ProductItem'
 import ReactPaginate from 'react-paginate'
 import { useDataLayerValue } from '../context-api/DataLayer'
-import { actionTypes } from '../context-api/reducer'
 
 function ProductItemsList() {
-  const [{ products, productsCurrent }, dispatch] = useDataLayerValue()
-  
-  const [productList, setProductList] = useState(productsCurrent)
+  const [{ productsCurrent }] = useDataLayerValue()
+
   const [pageNum, setPageNum] = useState(0)
 
   // ==== PAGINATION ====
   const productsPerPage = 4
   const pagesVisited = pageNum * productsPerPage
-  const displayProducts = productList
+  const displayProducts = productsCurrent
     .slice(pagesVisited, (pagesVisited + productsPerPage))
     .map(((product, keyId) => {
       return <ProductItem key={keyId} data={product} />
     }))
 
-  const pageCounter = Math.ceil(productList.length / productsPerPage)
+  const pageCounter = Math.ceil(productsCurrent.length / productsPerPage)
   const [hidePrev, setHidePrev] = useState("hidebx")
   const [hideNext, setHideNext] = useState("")
 
