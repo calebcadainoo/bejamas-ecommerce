@@ -19,7 +19,7 @@ the 'prev' arrow on the first page and hide the 'next' arrow on the last page
 Implement 2 types of sorting: alphabetically or by price. Use basic HTML select. Clicking on arrows should change
 the order to 'ascending' or 'descending'.
 
-### 6. Filtering
+### 6. Filtering (completed)
 Products should be filterable. You can filter products by multiple categories (multiple filters) and only one price
 range (single filter). Using filters should affect the pagination. Try to build filter options dynamically (don't hardcode
 them).
